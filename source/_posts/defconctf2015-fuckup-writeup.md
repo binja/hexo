@@ -25,7 +25,7 @@ We can select from the following commands:
 
 Actually, I don't know the detailed implementations of these commands except for "Test stack smash", for it was not I but another team member who coped with this challenge at first.
 It seems that the author's intended solution is to use SMT solver like z3 to predict random values generated, and my teammate attempted to do that. 
-It, however, however,, didn't work correctly since we were unfamiliar with and poor at using SMT solver.
+It, however, didn't work correctly since we were unfamiliar with and poor at using SMT solver.
 So I decided to try to solve this problem by the really "pwnwise" solution.
 
 First, I suspected Partial Overwrite could be used.
