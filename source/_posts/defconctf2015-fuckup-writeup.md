@@ -20,8 +20,8 @@ We can select from the following commands:
  0. Quit: simply `return 0;`.
  1. Display info: Display an introduction. Nothing interesting.
  2. Change random: Generate a random value and move mappings correspondingly.
- 3. View state info: Show the current random value and then change random as same as "Change random".
- 4. Test stack smash: Cause stack based buffer overflow by 100 bytes against a 16-byte buffer.
+ 3. View state info: Show the current random value and then change the value as same as "Change random".
+ 4. Test stack smash: Cause stack based buffer overflow by 100 bytes against a 10-byte buffer.
 
 Actually, I don't know the detailed implementations of these commands except for "Test stack smash", for it was not I but another team member who cope with this challenge at first.
 It seems that the author's intended solution is to use SMT solver like z3 to predict random values generated, and my teammate attempted to do that. 
@@ -73,7 +73,7 @@ But this approach isn't realistic because it needs to do "Change random" many ti
 The latter, actually, can be realized: using VDSO.
 I think everyone knows this, but VDSO ASLR is weaker than ASLR on the other sections(that entropy is usually only 2 bytes) and there is a famous exploit method, Sigreturn Oriented Programming(SROP).
 That means we can solve this problem by doing brute force 256 times.
-It was a little bit difficult for me to write the exploit due to the limitation that I had to do ROP only with gadgets on VDSO and that I was allowed to use only 100 bytes for ROP.
+It was a little bit difficult for me to write the exploit due to the limitation that I had to do ROP only with gadgets on VDSO and that I was allowed to use only 78 bytes for ROP.
 sysenter is a good gadget for stack pivotting!
 ```python
 import subprocess
