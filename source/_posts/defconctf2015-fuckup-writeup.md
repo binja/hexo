@@ -23,7 +23,7 @@ We can select from the following commands:
  3. View state info: Show the current random value and then change the value as same as "Change random".
  4. Test stack smash: Cause stack based buffer overflow by 100 bytes against a 10-byte buffer.
 
-Actually, I don't know the detailed implementations of these commands except for "Test stack smash", for it was not I but another team member who cope with this challenge at first.
+Actually, I don't know the detailed implementations of these commands except for "Test stack smash", for it was not I but another team member who coped with this challenge at first.
 It seems that the author's intended solution is to use SMT solver like z3 to predict random values generated, and my teammate attempted to do that. 
 It, however, however,, didn't work correctly since we were unfamiliar with and poor at using SMT solver.
 So I decided to try to solve this problem by the really "pwnwise" solution.
