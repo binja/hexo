@@ -74,7 +74,9 @@ The latter, actually, can be realized: using VDSO.
 I think everyone knows this, but VDSO ASLR is weaker than ASLR on the other sections(that entropy is usually only 2 bytes) and there is a famous exploit method, Sigreturn Oriented Programming(SROP).
 That means we can solve this problem by doing brute force 256 times.
 It was a little bit difficult for me to write the exploit due to the limitation that I had to do ROP only with gadgets on VDSO and that I was allowed to use only 78 bytes for ROP.
+Why `stack_addr = vdso - 0x800` does work correctly is described in [my paper](http://www.npca.jp/works/magazine/2015_1/).
 sysenter is a good gadget for stack pivotting!
+
 ```python
 import subprocess
 import socket
