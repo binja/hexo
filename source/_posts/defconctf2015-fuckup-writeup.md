@@ -17,11 +17,11 @@ This is a PoC service for the new and improved ASLR, "Fully Unguessable Convolut
 Each time a user executes a command, F.U.C.K.U.P. changes the base address of memory where the binary is mapped according to a random number produced by the generation algorithm similar to WELL512.
 
 We can select from the following commands:
-0. Quit: simply `return 0;`.
-1. Display info: Display an introduction. Nothing interesting.
-2. Change random: Generate a random value and move mappings correspondingly.
-3. View state info: Show the current random value and then change random as same as "Change random".
-4. Test stack smash: Cause stack based buffer overflow by 100 bytes against a 16-byte buffer.
+ 0. Quit: simply `return 0;`.
+ 1. Display info: Display an introduction. Nothing interesting.
+ 2. Change random: Generate a random value and move mappings correspondingly.
+ 3. View state info: Show the current random value and then change random as same as "Change random".
+ 4. Test stack smash: Cause stack based buffer overflow by 100 bytes against a 16-byte buffer.
 
 Actually, I don't know the detailed implementations of these commands except for "Test stack smash", for it was not I but another team member who cope with this challenge at first.
 It seems that the author's intended solution is to use SMT solver like z3 to predict random values generated, and my teammate attempted to do that. 
@@ -52,8 +52,8 @@ Okay, let me explain how I solved this problem even though I couldn't use z3 and
 Thinking that the return address is always overwritten by a buffer overflow, I had to overwrite it with some valid address.
 Here, valid address means a address being mapped and executable.
 So there are two possible ways to exploit the binary:
-1. Fix valid addresses somehow.
-2. Use the addresses which are always fixed.
+ 1. Fix valid addresses somehow.
+ 2. Use the addresses which are always fixed.
 
 I thought the former could be realized because the number of mapped addresses goes on increasing by `change_mapping(sub_80481A6)`.
 In change_mapping, `mmap` is called like this:
