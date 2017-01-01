@@ -14,7 +14,7 @@ tags:
 ## Introduction
 
 This is a PoC service for the new and improved ASLR, "Fully Unguessable Convoluted Kinetogenic Userspace Pseudoransomization"(F.U.C.K.U.P. for short).
-Each time a user executes a command, F.U.C.K.U.P. changes the base address of memory where the binary is mapped according to a random number produced by the generation algorithm similar to WELL512.
+Each time an user executes a command, F.U.C.K.U.P. changes the base address of memory where the binary is mapped according to a random number produced by the generation algorithm similar to WELL512.
 
 We can select from the following commands:
  0. Quit: simply `return 0;`.
